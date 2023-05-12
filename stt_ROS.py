@@ -15,7 +15,7 @@ def main():
         r.adjust_for_ambient_noise(source)
         print("Escuchando...")
         while True:
-            audio = r.listen(source)
+            audio = r.listen(source, 5, 3)
             try:
                 text = r.recognize_google(audio, language="es-MX")
                 text = text.lower() + "."
