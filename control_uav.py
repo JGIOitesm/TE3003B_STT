@@ -44,12 +44,12 @@ def setMode(mode):
 
 def setLandMode():
     rospy.wait_for_service("/mavros/cmd/land")
-    # try:
-    # landService = rospy.ServiceProxy("/mavros/cmd/land", CommandTOL)
-    # isLanding = landService(altitude=0, latitude=0,
-    # longitude=0, min_pitch=0, yaw=1)
-    # except rospy.ServiceException:
-    #    print("Takeoff failed")
+    try:
+        landService = rospy.ServiceProxy("/mavros/cmd/land", CommandTOL)
+        isLanding = landService(altitude=0, latitude=0, longitude=0, min_pitch=0, yaw=1)
+        isLanding
+    except rospy.ServiceException:
+        print("Takeoff failed")
 
 
 def manual_control():
